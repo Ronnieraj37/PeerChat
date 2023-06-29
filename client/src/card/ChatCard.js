@@ -29,7 +29,11 @@ const ChatCard = ({contract,address}) => {
                 setmessages("Tap to Chat");
             } else{
                 const lastMsg = res[res.length -1].message;
-                setmessages(lastMsg);
+                if(res[res.length -1].isText){
+                    setmessages(lastMsg);
+                } else{
+                    setmessages('-Image-');
+                }
             }
         } catch (error) {
             console.log("Error",error);
