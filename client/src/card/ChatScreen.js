@@ -132,9 +132,7 @@ const ChatScreen = ({ contract, user }) => {
         setsendMsg('');
     }
     useEffect(() => {
-        setTimeout(() => {
-            getMessages();
-        }, 500);
+        getMessages();
     }, [messages]);
     return (
         <div>
