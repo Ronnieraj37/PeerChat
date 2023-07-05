@@ -25,38 +25,24 @@ const Home = ({ setverified, setaccount, contract, setaccountDetails, connected,
         try {
           await ethereum.request({
             method: 'wallet_switchEthereumChain',
-            params: [{ chainId: '0xfa2' }],
+            params: [{ chainId: '0x13881' }],
           });
         } catch (switchError) {
           // This error code indicates that the chain has not been added to MetaMask.
           if (switchError.code === 4902) {
             // Do something
-            // window.ethereum.request({
-            //   method: 'wallet_addEthereumChain',
-            //   params: [{
-            //     chainId: '0x13881',
-            //     chainName: 'Polygon',
-            //     nativeCurrency: {
-            //       name: 'Mumbai',
-            //       symbol: 'MATIC',
-            //       decimals: 18
-            //     },
-            //     rpcUrls: ['https://rpc-mumbai.maticvigil.com'],
-            //     blockExplorerUrls: ['https://mumbai.polygonscan.com']
-            //   }]
-            // })
             window.ethereum.request({
               method: 'wallet_addEthereumChain',
               params: [{
-                chainId: '0xfa2',
-                chainName: 'Fantom',
+                chainId: '0x13881',
+                chainName: 'Polygon',
                 nativeCurrency: {
-                  name: 'Fantom Testnet',
-                  symbol: 'FTM',
+                  name: 'Mumbai',
+                  symbol: 'MATIC',
                   decimals: 18
                 },
-                rpcUrls: ['https://rpc.testnet.fantom.network'],
-                blockExplorerUrls: ['https://testnet.ftmscan.com']
+                rpcUrls: ['https://rpc-mumbai.maticvigil.com'],
+                blockExplorerUrls: ['https://mumbai.polygonscan.com']
               }]
             })
               .catch((error) => {
@@ -75,8 +61,8 @@ const Home = ({ setverified, setaccount, contract, setaccountDetails, connected,
         const address = await signer.getAddress();
         setaccount(address);
         //let contractAddress = "0x7bB64F9E6e948603EB0A4477c3F368080D275605";//ganache address
-        //let contractAddress = '0x73C41d77240c8b52fa9568c7455c8d070EF65C98';//latest from mumbai
-        let contractAddress = "0x196d4119944CD005AD917466B8e2e2Ec018FA547"; //fantom
+        let contractAddress = '0x73C41d77240c8b52fa9568c7455c8d070EF65C98';//latest from mumbai
+        //let contractAddress = "0x196d4119944CD005AD917466B8e2e2Ec018FA547"; //fantom
         const contractInstance = new ethers.Contract(
           contractAddress,
           PeerChat.abi,

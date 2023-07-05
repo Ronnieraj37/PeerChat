@@ -10,7 +10,7 @@ const ChatText = ({ user, msg, setsendMsg, setloading }) => {
   const replyAI = async () => {
     setloading(true);
     const configuration = new Configuration({
-      apiKey: '*YOUR_API_KEY*',
+      apiKey: '*OPENAI_API_KEY*',
     });
     const openai = new OpenAIApi(configuration);
     try {
@@ -38,7 +38,7 @@ const ChatText = ({ user, msg, setsendMsg, setloading }) => {
     }
   }
   const getTime = () => {
-    if (msg.timestamp != null || msg.timestamp != undefined) {
+    if (msg.timestamp !== undefined) {
       const mssg = JSON.parse(JSON.stringify(msg.timestamp));
       var timestamp = parseInt(mssg.hex, 16);
       timestamp = timestamp * 1000;
