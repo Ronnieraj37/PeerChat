@@ -57,6 +57,7 @@ const Home = ({ setverified, setaccount, contract, setaccountDetails, connected,
               });
           }
         }
+        await provider.send("eth_requestAccounts", []);
         const signer = provider.getSigner();
         const address = await signer.getAddress();
         setaccount(address);
