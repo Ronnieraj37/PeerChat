@@ -10,9 +10,9 @@ module.exports = {
       accounts: [process.env.PRIVATE_KEY],
     },
     fantom: {
-      url: "https://rpc.testnet.fantom.network",
+      url: "https://rpcapi.fantom.network",
       accounts: [process.env.PRIVATE_KEY],
-      chainId: 4002,
+      chainId: 250,
       live: false,
       saveDeployments: true,
       gasMultiplier: 2,
